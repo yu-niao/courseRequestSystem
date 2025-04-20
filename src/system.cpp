@@ -5,13 +5,23 @@
 #include <iomanip>
 #include <string>
 
-CourseRequestSystem::CourseRequestSystem() {}
+CourseRequestSystem::CourseRequestSystem() {
+    if (!db.connect()) {
+        std::cout << "数据库连接失败！" << std::endl;
+        exit(1);
+    }
+}
+
+CourseRequestSystem::~CourseRequestSystem() {
+    db.disconnect();
+}
 
 void CourseRequestSystem::addStudent(const Student& student) {
-    if (students.find(student.getStudentId()) != students.end()) {
-        throw std::runtime_error("学生ID已存在！");
+    if (db.addStudent(student)) {
+        std::cout << "学生添加成功！" << std::endl;
+    } else {
+        std::cout << "学生添加失败！" << std::endl;
     }
-    students[student.getStudentId()] = student;
 }
 
 void CourseRequestSystem::removeStudent(const std::string& studentId) {

@@ -1,6 +1,7 @@
-#ifndef SYSTEM_HPP
-#define SYSTEM_HPP
+#ifndef SYSTEM_H
+#define SYSTEM_H
 
+#include "database.h"  // 确保包含数据库头文件
 #include <vector>
 #include <map>
 #include "student.h"
@@ -9,12 +10,14 @@
 
 class CourseRequestSystem {
 private:
+    Database db;  // 声明数据库成员变量
     std::map<std::string, Student> students;
     std::map<std::string, Course> courses;
     std::vector<Request> requests;
 
 public:
     CourseRequestSystem();
+    ~CourseRequestSystem();
     
     // 学生管理
     void addStudent(const Student& student);

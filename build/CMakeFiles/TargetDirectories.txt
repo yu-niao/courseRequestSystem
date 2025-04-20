@@ -1,0 +1,3 @@
+/home/yu-niao/codeSpace/projects/courseRequest/build/CMakeFiles/course_request_system.dir
+/home/yu-niao/codeSpace/projects/courseRequest/build/CMakeFiles/edit_cache.dir
+/home/yu-niao/codeSpace/projects/courseRequest/build/CMakeFiles/rebuild_cache.dir
